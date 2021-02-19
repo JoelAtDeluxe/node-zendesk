@@ -7,6 +7,14 @@
 **Read the full documentation at blakmatrix.github.io/node-zendesk/**
 
 ---
+
+## Fork Changes
+
+This fork:
+
+* Removes decapsulation that occurred due to the use of `jsonAPINames`, which would automatically unbox top-level results (e.g. users.list() now returns `{"users": [{"id": 1, ...}]})` instead of `[{"id": 1, ...}]`). This is done to better align with the types provided by [@types/node-zendesk](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node-zendesk)
+  * Note: this has been done blindly. It is unclear if this will cause problems for specific methods
+
 ## Promise support introduced
 
 Promise support was introduced in @v`2.0.0`, the Legacy version of node-zendesk without Promises @v`1.5.0`
